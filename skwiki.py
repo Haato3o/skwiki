@@ -11,6 +11,9 @@ returns the <item name> status
 skwiki.item_image('item name')
 returns the <item name> image
 
+skwiki.item_tier('item name')
+returns how many stars the <item name> has
+
 if any of the functions return False, then the wiki is either offline or the item name is invalid.
 
 '''
