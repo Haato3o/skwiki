@@ -26,7 +26,7 @@ except:
 
 def item_description(ITEM_NAME: str):
 		ITEM_NAME = ITEM_NAME.replace(" ", "_")
-		URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME
+		URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME.title()
 		try:
 			URL = urllib.request.urlopen(URL).read()
 			URL = URL.decode('utf-8')
@@ -44,7 +44,7 @@ def item_description(ITEM_NAME: str):
 
 def item_image(ITEM_NAME: str):
 	ITEM_NAME = ITEM_NAME.replace(" ", "_")
-	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME
+	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME.title()
 	try:
 		URL = urllib.request.urlopen(URL).read()
 		URL = URL.decode('utf-8')
@@ -64,7 +64,7 @@ def item_image(ITEM_NAME: str):
 
 def item_status(ITEM_NAME: str):
 	ITEM_NAME = ITEM_NAME.replace(" ", "_")
-	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME
+	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME.title()
 	try:
 		URL = urllib.request.urlopen(URL).read()
 		URL = URL.decode('utf-8')
@@ -83,7 +83,7 @@ def item_status(ITEM_NAME: str):
 
 def item_tier(ITEM_NAME: str):
 	ITEM_NAME = ITEM_NAME.replace(" ", "_")
-	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME
+	URL = 'http://wiki.spiralknights.com/%s' % ITEM_NAME.title()
 	try:
 		URL = urllib.request.urlopen(URL).read()
 		URL = URL.decode('utf-8')
