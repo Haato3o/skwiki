@@ -55,7 +55,7 @@ def item_image(ITEM_NAME: str):
 			ITEM_IMAGE = list(str(ITEM_IMAGE.get('src')))
 			ITEM_IMAGE.remove('/')
 			ITEM_IMAGE = "".join(ITEM_IMAGE)
-			ITEM_IMAGE_URL = 'http://media.spiralknights.com/wiki-%s' % ITEM_IMAGE
+			ITEM_IMAGE_URL = 'http://media3.spiralknights.com/wiki-%s' % ITEM_IMAGE
 			return ITEM_IMAGE_URL
 		except:
 			return False
@@ -74,7 +74,7 @@ def item_status(ITEM_NAME: str):
 			ITEM_STATUS = list(str(ITEM_STATUS.get('src')))
 			ITEM_STATUS.remove('/')
 			ITEM_STATUS = "".join(ITEM_STATUS)
-			ITEM_STATUS_URL = 'http://media.spiralknights.com/wiki-%s' % ITEM_STATUS
+			ITEM_STATUS_URL = 'http://media3.spiralknights.com/wiki-%s' % ITEM_STATUS
 			return ITEM_STATUS_URL
 		except:
 			return False
