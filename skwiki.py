@@ -71,8 +71,7 @@ class item:
 			content = request.get(wikiUrl+self.name).text
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			htmlParser.find(alt='stats')
-			tier = list(htmlParser.find('td').find_all_next('td')[3].get_text())
-			tier.remove(item[6])
-			return ''.join(tier)
+			tier = htmlParser.find('td').find_all_next('td')[3].get_text()
+			return tier.strip('\n ')
 		except:
 			print('No item found')
