@@ -57,7 +57,7 @@ class item:
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			status = list(str(htmlParser.find(alt='stats').get('src')))
 			status.remove('/')
-			return '{}{}'.format(mediaUrl, ''.join(image))
+			return '{}{}'.format(mediaUrl, ''.join(status))
 		except:
 			print('No item found')
 
