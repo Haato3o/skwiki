@@ -8,20 +8,20 @@ class item:
 	'''
 		Searches Spiral Knights wiki for the desired item.
 	'''
-	def __init__(self, name):
+	def __init__(self, item):
 		'''
-			:name: Item name
+			:item: Item name
 		'''
-		self.name = name.replace(' ', '_').title()
+		self.item = request.get(wikiUrl+item.replace(' ', '_').title())
 	
 	def description(self):
 		'''
 			Function to get item description
-			:name: Item name
+			:item: Item name
 			:return: String
 		'''
 		try:
-			content = request.get(wikiUrl+self.name).text
+			content = self.item.text
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			htmlParser.find(alt='stats')
 			description = htmlParser.find(id='Description').find_next('p').get_text()
@@ -33,11 +33,11 @@ class item:
 	def image(self):
 		'''
 			Function to get item image
-			:name: Item name
+			:item: Item name
 			:return: String
 		'''
 		try:
-			content = request.get(wikiUrl+self.name).text
+			content = self.item.text
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			htmlParser.find(alt='stats')
 			image = list(str(htmlParser.find('img').get('src')))
@@ -49,11 +49,11 @@ class item:
 	def status(self):
 		'''
 			Function to get item status
-			:name: Item name
+			:item: Item name
 			:return: String
 		'''
 		try:
-			content = request.get(wikiUrl+self.name).text
+			content = self.item.text
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			status = list(str(htmlParser.find(alt='stats').get('src')))
 			status.remove('/')
@@ -64,11 +64,11 @@ class item:
 	def tier(self):
 		'''
 			Function to get item tier
-			:name: Item name
+			:item: Item name
 			:return: String
 		'''
 		try:
-			content = request.get(wikiUrl+self.name).text
+			content = self.item.text
 			htmlParser = BeautifulSoup(content, 'html.parser')
 			htmlParser.find(alt='stats')
 			tier = htmlParser.find('td').find_all_next('td')[3].get_text()
