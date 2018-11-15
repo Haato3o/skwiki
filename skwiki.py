@@ -12,7 +12,7 @@ class item:
 		'''
 			:item: Item name
 		'''
-		self.item = request.get(wikiUrl+item.replace(' ', '_').title())
+		self.item = request.get(wikiUrl+item.replace(' ', '_').capitalize())
 	
 	def description(self):
 		'''
