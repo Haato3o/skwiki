@@ -1,7 +1,7 @@
 from requests import request
 from bs4 import BeautifulSoup
 
-Wiki    = 'http://wiki.spiralknights.com/'
+Wiki    = 'https://wiki.spiralknights.com/index.php?'
 Media   = 'http://media3.spiralknights.com/wiki-'
 
 class Gear:
@@ -9,10 +9,15 @@ class Gear:
         '''
             :param Name: Weapon/Armor/Shield name
         '''
+        search_params = {
+            "title" : "Special:Search",
+            "seatch" : Name,
+            "go": "Go"
+        }
         self.Pretty_Name: str = Name
-        self.Name: str = Name.title().replace(" ", "_").replace("'S","'s")
-        self.URL: str = f"{Wiki}{self.Name}".replace("Of", "of").replace("The_", "the_")
-        self.Wiki_Content = request('get', self.URL)
+        self.Wiki_Content = request('get', self.URL, params=parameters)
+        self.URL: str = self.Wiki_Content.URL
+        
 
     def Description(self):
         '''
